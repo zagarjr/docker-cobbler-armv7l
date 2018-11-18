@@ -1,7 +1,7 @@
 [![](https://images.microbadger.com/badges/image/containersol/docker-cobbler.svg)](https://microbadger.com/images/containersol/docker-cobbler "Get your own image badge on microbadger.com")
 
-# Docker-Cobbler
-Cobbler in a Docker container
+# Docker-Cobbler-ARMv7l
+Cobbler in a Docker container on ARMv7l (32-bit)
 
 This repository aims to provide a fully functional Cobbler server in a Docker container.
 Please refer to [this blog](http://container-solutions.com/cobbler-in-a-docker-container/) for an explanation.
