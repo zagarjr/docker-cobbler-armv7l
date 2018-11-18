@@ -1,4 +1,4 @@
-FROM centos:7.2.1511
+FROM centos:7
 
 MAINTAINER thijs.schnitger@container-solutions.com
 
@@ -12,7 +12,12 @@ rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 VOLUME [ “/sys/fs/cgroup” ]
 
-RUN yum -y install epel-release
+RUN echo "[epel]"  > /etc/yum.repos.d/epel.repo; \
+echo "name=Epel rebuild for armhfp" >> /etc/yum.repos.d/epel.repo; \
+echo "baseurl=https://armv7.dev.centos.org/repodir/epel-pass-1/" >> /etc/yum.repos.d/epel.repo; \
+echo "enabled=1" >> /etc/yum.repos.d/epel.repo; \
+echo "gpgcheck=0" >> /etc/yum.repos.d/epel.repo
+
 RUN yum -y install cobbler cobbler-web dhcp bind syslinux pykickstart
 
 RUN systemctl enable cobblerd httpd dhcpd
